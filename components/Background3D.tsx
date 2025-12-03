@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, Icosahedron, Stars, Trail } from '@react-three/drei';
+import { Float, MeshDistortMaterial, Icosahedron } from '@react-three/drei';
 import * as THREE from 'three';
 
 const Electron = ({ radius = 1.5, baseSpeed = 1, color = "#F43F5E", offset = 0 }: any) => {
@@ -19,12 +19,10 @@ const Electron = ({ radius = 1.5, baseSpeed = 1, color = "#F43F5E", offset = 0 }
   });
 
   return (
-    <Trail width={1.2} length={6} color={new THREE.Color(color)} attenuation={(t) => t * t}>
-      <mesh ref={ref}>
-        <sphereGeometry args={[0.04]} />
-        <meshBasicMaterial color={color} toneMapped={false} />
-      </mesh>
-    </Trail>
+    <mesh ref={ref}>
+      <sphereGeometry args={[0.04]} />
+      <meshBasicMaterial color={color} toneMapped={false} />
+    </mesh>
   );
 };
 
@@ -66,11 +64,6 @@ const GeometricCrystal = () => {
             opacity={0.3}
           />
         </Icosahedron>
-
-        {/* Orbiting Electrons with Trails */}
-        <Electron radius={2.2} baseSpeed={0.8} color="#8B5CF6" offset={0} />
-        <Electron radius={2.5} baseSpeed={0.6} color="#F43F5E" offset={2} />
-        <Electron radius={2.8} baseSpeed={0.4} color="#06b6d4" offset={4} />
       </group>
     </Float>
   );
@@ -123,7 +116,6 @@ const Background3D = () => {
         <ScrollScene />
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} color="#ffffff" />
-        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
         <GeometricCrystal />
       </Canvas>
     </div>

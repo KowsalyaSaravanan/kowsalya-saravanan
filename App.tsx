@@ -1,14 +1,17 @@
 
 import React, { Suspense, useState, useEffect } from 'react';
 import Background3D from './components/Background3D';
+import AIBackground from './components/AIBackground';
+import AIIntro from './components/AIIntro';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
+import ScrollProgress from './components/ScrollProgress';
 import { Home, User, Cpu, Briefcase, Mail, FolderGit2 } from 'lucide-react';
-import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 // Icon mapping for dock
 const DockIcon = ({ icon: Icon, label, target, scrollToSection, mouseX }: any) => {
@@ -90,9 +93,18 @@ const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen text-slate-200 font-sans selection:bg-primary/30 selection:text-white pb-32">
+      {/* AI World Intro */}
+      <AIIntro />
+
       <Suspense fallback={<div className="fixed inset-0 bg-[#0F172A]" />}>
         <Background3D />
       </Suspense>
+
+      {/* AI Neural Network Background */}
+      <AIBackground />
+
+      {/* Scroll Progress Indicator */}
+      <ScrollProgress />
 
       {/* Main Content */}
       <main className="relative z-10">

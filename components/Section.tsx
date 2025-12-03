@@ -26,7 +26,7 @@ const Section: React.FC<SectionProps> = ({ id, title, children, className = "" }
             <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-12 bg-accent/50 hidden md:block" />
             <div className="absolute -left-4 top-0 w-3 h-3 border-l border-t border-accent/50 hidden md:block" />
             
-            <h2 className="text-4xl md:text-6xl font-bold text-white inline-block tracking-tight relative z-10">
+            <h2 className="text-4xl md:text-6xl font-bold text-white inline-block relative z-10 nothing-style">
               {title}
               <span className="text-accent">.</span>
             </h2>

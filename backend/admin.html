@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio CMS - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-5xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Portfolio CMS</h1>
+        
+        <!-- Tabs -->
+        <div class="flex gap-4 mb-8 border-b border-gray-700">
+            <button onclick="showTab('personal')" class="tab-btn px-6 py-3 font-semibold hover:text-purple-400 border-b-2 border-transparent" data-tab="personal">Personal Info</button>
+            <button onclick="showTab('about')" class="tab-btn px-6 py-3 font-semibold hover:text-purple-400 border-b-2 border-transparent" data-tab="about">About</button>
+            <button onclick="showTab('projects')" class="tab-btn px-6 py-3 font-semibold hover:text-purple-400 border-b-2 border-transparent active" data-tab="projects">Projects</button>
+            <button onclick="showTab('skills')" class="tab-btn px-6 py-3 font-semibold hover:text-purple-400 border-b-2 border-transparent" data-tab="skills">Skills</button>
+            <button onclick="showTab('experience')" class="tab-btn px-6 py-3 font-semibold hover:text-purple-400 border-b-2 border-transparent" data-tab="experience">Experience</button>
+        </div>
+
+        <!-- Personal Info Tab -->
+        <div id="personal-tab" class="tab-content hidden">
+            <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                <h2 class="text-2xl font-bold mb-4">Personal Information</h2>
+                <form id="personalForm" class="space-y-4">
+                    <div>
+                        <label class="block mb-2">Full Name</label>
+                        <input type="text" id="personal_name" class="w-full bg-gray-700 px-4 py-2 rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Title/Role</label>
+                        <input type="text" id="personal_title" class="w-full bg-gray-700 px-4 py-2 rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Tagline</label>
+                        <input type="text" id="personal_tagline" class="w-full bg-gray-700 px-4 py-2 rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Email</label>
+                        <input type="email" id="personal_email" class="w-full bg-gray-700 px-4 py-2 rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2">LinkedIn URL</label>
+                        <input type="url" id="personal_linkedin" class="w-full bg-gray-700 px-4 py-2 rounded">
+                    </div>
+                    <div>
+                        <label class="block mb-2">GitHub URL</label>
+                        <input type="url" id="personal_github" class="w-full bg-gray-700 px-4 py-2 rounded">
+                    </div>
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded">Save Personal Info</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div id="about-tab" class="tab-content hidden">
+            <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                <h2 class="text-2xl font-bold mb-4">About Section</h2>
+                <form id="aboutForm" class="space-y-4">
+                    <div>
+                        <label class="block mb-2">Heading</label>
+                        <input type="text" id="about_heading" class="w-full bg-gray-700 px-4 py-2 rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Summary</label>
+                        <textarea id="about_summary" class="w-full bg-gray-700 px-4 py-2 rounded" rows="3" required></textarea>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Description</label>
+                        <textarea id="about_description" class="w-full bg-gray-700 px-4 py-2 rounded" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded">Save About Info</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div id="projects-tab" class="tab-content">
+            <div class="mb-8">
+                <button onclick="showProjectForm()" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-semibold">
+                    + Add New Project
+                </button>
+            </div>
+
+            <div id="projectForm" class="hidden mb-8 bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">Add/Edit Project</h2>
+                <form id="projectFormElement" class="space-y-4">
+                    <input type="hidden" id="projectId">
+                    <div>
+                        <label class="block mb-2">Title</label>
+                        <input type="text" id="project_title" class="w-full bg-gray-700 px-4 py-2 rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Description</label>
+                        <textarea id="project_description" class="w-full bg-gray-700 px-4 py-2 rounded" rows="3" required></textarea>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Category</label>
+                        <input type="text" id="project_category" class="w-full bg-gray-700 px-4 py-2 rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Technologies (comma separated)</label>
+                        <input type="text" id="project_tech" class="w-full bg-gray-700 px-4 py-2 rounded" placeholder="React, Node.js, MongoDB" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Live URL</label>
+                        <input type="url" id="project_url" class="w-full bg-gray-700 px-4 py-2 rounded">
+                    </div>
+                    <div>
+                        <label class="block mb-2">GitHub URL</label>
+                        <input type="url" id="project_github" class="w-full bg-gray-700 px-4 py-2 rounded">
+                    </div>
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="project_live" class="mr-2">
+                            <span>Project is Live</span>
+                        </label>
+                    </div>
+                    <div class="flex gap-4">
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded">Save</button>
+                        <button type="button" onclick="hideProjectForm()" class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="projectsList" class="space-y-4"></div>
+        </div>
+
+        <!-- Skills Tab -->
+        <div id="skills-tab" class="tab-content hidden">
+            <p class="text-gray-400 mb-4">Edit skills directly in the JSON file for now. Full UI coming soon!</p>
+        </div>
+
+        <!-- Experience Tab -->
+        <div id="experience-tab" class="tab-content hidden">
+            <p class="text-gray-400 mb-4">Edit experience directly in the JSON file for now. Full UI coming soon!</p>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://127.0.0.1:8000/api';
+
+        // Tab Management
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('border-purple-500', 'text-purple-400');
+                el.classList.add('border-transparent');
+            });
+            
+            document.getElementById(`${tabName}-tab`).classList.remove('hidden');
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('border-purple-500', 'text-purple-400');
+            
+            if (tabName === 'personal') loadPersonal();
+            if (tabName === 'about') loadAbout();
+            if (tabName === 'projects') loadProjects();
+        }
+
+        // Personal Info
+        async function loadPersonal() {
+            const res = await fetch(`${API_BASE}/personal`);
+            const data = await res.json();
+            document.getElementById('personal_name').value = data.name || '';
+            document.getElementById('personal_title').value = data.title || '';
+            document.getElementById('personal_tagline').value = data.tagline || '';
+            document.getElementById('personal_email').value = data.email || '';
+            document.getElementById('personal_linkedin').value = data.linkedin || '';
+            document.getElementById('personal_github').value = data.github || '';
+        }
+
+        document.getElementById('personalForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                name: document.getElementById('personal_name').value,
+                title: document.getElementById('personal_title').value,
+                tagline: document.getElementById('personal_tagline').value,
+                email: document.getElementById('personal_email').value,
+                linkedin: document.getElementById('personal_linkedin').value || null,
+                github: document.getElementById('personal_github').value || null
+            };
+            await fetch(`${API_BASE}/personal`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            alert('Personal info saved!');
+        });
+
+        // About Info
+        async function loadAbout() {
+            const res = await fetch(`${API_BASE}/about`);
+            const data = await res.json();
+            document.getElementById('about_heading').value = data.heading || '';
+            document.getElementById('about_summary').value = data.summary || '';
+            document.getElementById('about_description').value = data.description || '';
+        }
+
+        document.getElementById('aboutForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                heading: document.getElementById('about_heading').value,
+                summary: document.getElementById('about_summary').value,
+                description: document.getElementById('about_description').value
+            };
+            await fetch(`${API_BASE}/about`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            alert('About info saved!');
+        });
+
+        // Projects
+        async function loadProjects() {
+            const res = await fetch(`${API_BASE}/projects`);
+            const data = await res.json();
+            const projects = data.projects;
+            
+            const list = document.getElementById('projectsList');
+            list.innerHTML = projects.map(p => `
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold mb-2">${p.title}</h3>
+                            <p class="text-gray-400 mb-2">${p.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-2">
+                                ${p.tech.map(t => `<span class="bg-purple-600 px-3 py-1 rounded text-sm">${t}</span>`).join('')}
+                            </div>
+                            <p class="text-sm text-gray-500">Category: ${p.category}</p>
+                            ${p.live ? '<span class="text-green-400 text-sm">● Live</span>' : ''}
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="editProject(${p.id})" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Edit</button>
+                            <button onclick="deleteProject(${p.id})" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showProjectForm() {
+            document.getElementById('projectForm').classList.remove('hidden');
+            document.getElementById('projectFormElement').reset();
+            document.getElementById('projectId').value = '';
+        }
+
+        function hideProjectForm() {
+            document.getElementById('projectForm').classList.add('hidden');
+        }
+
+        async function editProject(id) {
+            const res = await fetch(`${API_BASE}/projects`);
+            const data = await res.json();
+            const project = data.projects.find(p => p.id === id);
+            
+            if (project) {
+                document.getElementById('projectId').value = project.id;
+                document.getElementById('project_title').value = project.title;
+                document.getElementById('project_description').value = project.description;
+                document.getElementById('project_category').value = project.category;
+                document.getElementById('project_tech').value = project.tech.join(', ');
+                document.getElementById('project_url').value = project.url || '';
+                document.getElementById('project_github').value = project.github || '';
+                document.getElementById('project_live').checked = project.live;
+                showProjectForm();
+            }
+        }
+
+        async function deleteProject(id) {
+            if (confirm('Delete this project?')) {
+                await fetch(`${API_BASE}/projects/${id}`, { method: 'DELETE' });
+                loadProjects();
+            }
+        }
+
+        document.getElementById('projectFormElement').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const projectId = document.getElementById('projectId').value;
+            const project = {
+                title: document.getElementById('project_title').value,
+                description: document.getElementById('project_description').value,
+                category: document.getElementById('project_category').value,
+                tech: document.getElementById('project_tech').value.split(',').map(t => t.trim()),
+                url: document.getElementById('project_url').value || null,
+                github: document.getElementById('project_github').value || null,
+                live: document.getElementById('project_live').checked
+            };
+
+            const url = projectId ? `${API_BASE}/projects/${projectId}` : `${API_BASE}/projects`;
+            const method = projectId ? 'PUT' : 'POST';
+
+            await fetch(url, {
+                method: method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(project)
+            });
+
+            hideProjectForm();
+            loadProjects();
+        });
+
+        // Initialize
+        showTab('projects');
+    </script>
+</body>
+</html>

@@ -11,6 +11,8 @@ const Contact: React.FC = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,23 +25,43 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
 
-    // Simulate network delay for a better user experience
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Log success message and data as requested
-    console.log("Form Submitted Successfully!");
-    console.log("Payload:", formData);
-    
-    alert("Message sent successfully! (Check console for details)");
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
-    setIsSubmitting(false);
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        alert('Message sent successfully! I will get back to you soon.');
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(data.error || 'Failed to send message');
+        alert(`Error: ${data.error || 'Failed to send message'}`);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please try again or email me directly.');
+      alert('Network error. Please try again or email me directly.');
+      console.error('Error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -47,8 +69,8 @@ const Contact: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-surface/30 backdrop-blur-sm border border-white/5 rounded-3xl p-8 md:p-12">
         
         <div>
-          <h3 className="text-2xl font-bold mb-6">Let's build something intelligent.</h3>
-          <p className="text-gray-400 mb-8 leading-relaxed">
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 leading-tight font-display">Let's build something intelligent.</h3>
+          <p className="text-gray-300 text-lg mb-10 leading-relaxed">
             I'm currently available for freelance projects or full-time opportunities.
             If you need expertise in NLP, Computer Vision, or MLOps, let's connect.
           </p>

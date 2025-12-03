@@ -1,0 +1,18 @@
+[
+  {
+    "category": "Machine Learning",
+    "items": ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Deep Learning"]
+  },
+  {
+    "category": "Computer Vision",
+    "items": ["OpenCV", "Mediapipe", "CNNs", "Object Detection", "Face Auth"]
+  },
+  {
+    "category": "NLP & Speech",
+    "items": ["LLMs", "Transformers", "Whisper STT", "TTS", "Speech Translation"]
+  },
+  {
+    "category": "Data & MLOps",
+    "items": ["PySpark", "SQL", "Neo4j", "Airflow", "Docker", "CI/CD", "Git"]
+  }
+]

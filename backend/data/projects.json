@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Sasthra",
+    "description": "Comprehensive AI-powered language learning platform featuring real-time multilingual speech translation using Whisper AI, personalized course recommendations based on user learning patterns, and adaptive content delivery. The platform integrates advanced NLP models for speech-to-text conversion, neural machine translation for 50+ languages, and a sophisticated recommendation engine that analyzes user behavior to suggest optimal learning paths. Built with scalable microservices architecture to handle thousands of concurrent users.",
+    "tech": ["Whisper AI", "Transformers", "Neural Translation", "Recommender Systems", "Python", "FastAPI", "React"],
+    "category": "NLP & Recommender",
+    "live": true,
+    "url": "https://sasthra.in/",
+    "github": null
+  },
+  {
+    "id": 2,
+    "title": "IELTS Sasthra",
+    "description": "Advanced AI-powered IELTS preparation platform with intelligent proctoring system. Features include real-time face authentication using deep learning models, continuous monitoring for exam integrity, automated speaking assessment with pronunciation analysis, writing evaluation using NLP models, and instant AI-driven feedback. The system uses computer vision for detecting suspicious behavior, emotion recognition for stress analysis, and provides detailed performance analytics with personalized improvement suggestions. Includes mock tests, practice modules, and adaptive learning paths tailored to individual weaknesses.",
+    "tech": ["Computer Vision", "Face Recognition", "OpenCV", "MediaPipe", "NLP", "Speech Recognition", "Python", "TensorFlow"],
+    "category": "Computer Vision & NLP",
+    "live": true,
+    "url": "https://ielts.sasthra.in/",
+    "github": null
+  },
+  {
+    "id": 3,
+    "title": "Intervu Sasthra",
+    "description": "Intelligent recruitment platform powered by advanced NLP and machine learning. The system automatically parses resumes in multiple formats (PDF, DOCX, images) using OCR and NLP, extracts key information including skills, experience, education, and certifications. Features intelligent job-matching algorithms that analyze candidate profiles against job requirements, web scraping for real-time job postings from multiple sources, automated candidate ranking based on relevance scores, and integration with external APIs for background verification. Includes AI-powered interview scheduling, candidate communication automation, and comprehensive analytics dashboard for recruiters.",
+    "tech": ["NLP", "Resume Parsing", "Web Scraping", "BeautifulSoup", "Matching Algorithms", "OCR", "Python", "FastAPI"],
+    "category": "NLP & Automation",
+    "live": true,
+    "url": "https://interview.sasthra.in/",
+    "github": null
+  },
+  {
+    "id": 4,
+    "title": "PTE Sasthra",
+    "description": "Comprehensive PTE Academic test preparation platform with AI-powered proctoring and assessment. Features real-time face authentication and continuous monitoring using advanced computer vision models, automated speaking evaluation with fluency and pronunciation scoring, AI-based writing assessment analyzing grammar, vocabulary, and coherence, and instant feedback generation. The platform includes full-length mock tests simulating actual PTE exam conditions, section-wise practice modules, detailed performance analytics with score predictions, and personalized study plans. Uses deep learning for detecting exam violations, emotion analysis for test anxiety monitoring, and adaptive difficulty adjustment based on performance.",
+    "tech": ["Computer Vision", "Face Recognition", "Deep Learning", "Speech Analysis", "NLP", "PyTorch", "OpenCV", "Python"],
+    "category": "Computer Vision & NLP",
+    "live": true,
+    "url": "https://pte.sasthra.in/",
+    "github": null
+  },
+  {
+    "id": 5,
+    "title": "E-Sasthra Mobile App",
+    "description": "Revolutionary mobile application for English language learning powered by advanced conversational AI. Features interactive AI chatbots using Large Language Models (LLMs) for natural conversation practice, real-time speech-to-text (STT) for pronunciation assessment, text-to-speech (TTS) for listening practice with multiple accents, and personalized learning paths. The app includes AI-powered grammar correction, vocabulary building with contextual examples, daily conversation scenarios, role-play simulations, and progress tracking with detailed analytics. Built with React Native for cross-platform compatibility, integrates OpenAI GPT models for intelligent responses, and uses Whisper for accurate speech recognition. Includes offline mode, gamification elements, and social features for peer learning.",
+    "tech": ["LLMs", "GPT", "Whisper STT", "TTS", "Chatbot", "React Native", "Python", "FastAPI", "NLP"],
+    "category": "Conversational AI",
+    "live": true,
+    "url": "https://play.google.com/store/apps/details?id=com.ace.my_esl_app",
+    "github": null
+  },
+  {
+    "id": 6,
+    "title": "Pandora",
+    "description": "Intelligent school management system leveraging computer vision and AI for comprehensive campus monitoring. Features automated attendance tracking using facial recognition with 99%+ accuracy, real-time object detection for safety monitoring (detecting unauthorized items, suspicious activities), emotion recognition for student engagement analysis, and behavioral pattern detection. The system includes multi-camera integration, centralized dashboard for administrators, automated alert generation for security concerns, attendance reports with analytics, and integration with existing school management systems. Uses YOLO for object detection, CNN models for face recognition, and emotion classification models for sentiment analysis. Includes privacy-compliant data handling and GDPR compliance features.",
+    "tech": ["YOLO", "Object Detection", "Emotion AI", "Face Recognition", "OpenCV", "Deep Learning", "Python", "TensorFlow"],
+    "category": "Computer Vision",
+    "live": false,
+    "url": null,
+    "github": null
+  }
+]

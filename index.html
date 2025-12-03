@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kowsalya Saravanan | Creative Technologist</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+              nothing: ['Space Mono', 'monospace'],
             },
             colors: {
-              background: '#0F172A', // Deep Slate Blue
+              background: '#0F172A',
               surface: 'rgba(255, 255, 255, 0.05)',
-              primary: '#8B5CF6', // Violet
-              secondary: '#F43F5E', // Coral/Rose
+              primary: '#8B5CF6',
+              secondary: '#F43F5E',
               accent: '#8B5CF6',
               glass: 'rgba(255, 255, 255, 0.1)',
             },
@@ -35,10 +38,30 @@
         scroll-behavior: smooth;
       }
       body {
-        background-color: #0F172A;
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1729 100%);
         color: white;
         overflow-x: hidden;
-        cursor: auto; /* Ensure standard system cursor */
+        cursor: auto;
+      }
+      
+      /* Animated gradient background */
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(244, 63, 94, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
       }
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
@@ -70,11 +93,11 @@
 
       /* Text Outline / Stroke Effect */
       .text-outline {
-        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+        -webkit-text-stroke: 1px rgba(139, 92, 246, 0.2);
         color: transparent;
       }
       .text-outline-strong {
-        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
+        -webkit-text-stroke: 2px rgba(139, 92, 246, 0.3);
         color: transparent;
       }
       
@@ -90,9 +113,87 @@
       }
 
       .bg-grid {
-        background-size: 40px 40px;
-        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 50px 50px;
+        background-image: 
+          linear-gradient(to right, rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+        animation: gridMove 20s linear infinite;
+      }
+      
+      @keyframes gridMove {
+        0% { background-position: 0 0; }
+        100% { background-position: 50px 50px; }
+      }
+      
+      /* Glow effects */
+      .glow-accent {
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.3),
+                    0 0 40px rgba(139, 92, 246, 0.1);
+      }
+      
+      .glow-secondary {
+        box-shadow: 0 0 20px rgba(244, 63, 94, 0.3),
+                    0 0 40px rgba(244, 63, 94, 0.1);
+      }
+      
+      /* Animated gradient text */
+      @keyframes gradient {
+        0%, 100% {
+          background-size: 200% 200%;
+          background-position: left center;
+        }
+        50% {
+          background-size: 200% 200%;
+          background-position: right center;
+        }
+      }
+      
+      .animate-gradient {
+        animation: gradient 3s ease infinite;
+      }
+      
+      /* Nothing Phone Style - Dot Matrix Text */
+      .dot-matrix-text {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        text-shadow: 
+          2px 2px 0px rgba(139, 92, 246, 0.3),
+          -1px -1px 0px rgba(244, 63, 94, 0.2);
+      }
+      
+      .nothing-style {
+        font-family: 'Space Mono', monospace;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      
+      /* Floating animation */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      
+      /* Pulse glow */
+      @keyframes pulseGlow {
+        0%, 100% {
+          box-shadow: 0 0 20px rgba(139, 92, 246, 0.4),
+                      0 0 40px rgba(139, 92, 246, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(139, 92, 246, 0.6),
+                      0 0 60px rgba(139, 92, 246, 0.3);
+        }
+      }
+      
+      .animate-pulse-glow {
+        animation: pulseGlow 2s ease-in-out infinite;
       }
     </style>
   <script type="importmap">
@@ -113,5 +214,6 @@
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

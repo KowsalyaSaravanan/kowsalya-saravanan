@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "AI & ML Engineer",
+    "company": "Data Spark AI Solution Company",
+    "period": "June 2024 – Present",
+    "location": "Chennai, India",
+    "description": "Sole AI/ML engineer in a 20-member team, delivering end-to-end solutions across NLP, Computer Vision, Data Analytics, and Recommendation Systems.",
+    "achievements": [
+      "Designed MLOps pipelines (Airflow, Docker, CI/CD) for model training, deployment, and monitoring",
+      "Built and deployed transformer-based NLP models, CNNs for proctoring & vision tasks, and graph-based recommenders",
+      "Delivered AI features for 6 commercial apps (4 live)"
+    ]
+  }
+]

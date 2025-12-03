@@ -1,0 +1,44 @@
+{
+  "heading": "Transforming Data into Intelligent Solutions",
+  "summary": "AI & ML Engineer with 1+ year experience delivering AI features for 6 apps (4 live). Skilled in Data Analytics, Computer Vision, NLP, and Recommendation Systems with strong model training expertise. Passionate about applying ML to solve real business problems.",
+  "description": "My journey involves designing robust MLOps pipelines, building complex transformer-based NLP models, and deploying scalable computer vision systems. I thrive on the challenge of taking AI from research prototypes to production-grade applications.",
+  "stats": [
+    {
+      "value": "1+",
+      "label": "Years Experience",
+      "color": "accent"
+    },
+    {
+      "value": "6",
+      "label": "Applications",
+      "color": "white"
+    },
+    {
+      "value": "4",
+      "label": "Live Projects",
+      "color": "secondary"
+    }
+  ],
+  "competencies": [
+    {
+      "title": "GenAI & LLMs",
+      "description": "Specialized in fine-tuning Transformers and building conversational agents.",
+      "icon": "Brain"
+    },
+    {
+      "title": "Clean Code",
+      "description": "Writing maintainable, efficient Python code with best practices.",
+      "icon": "Code"
+    },
+    {
+      "title": "MLOps",
+      "description": "End-to-end deployment using Docker, Airflow, and CI/CD pipelines.",
+      "icon": "Rocket"
+    },
+    {
+      "title": "Data Eng",
+      "description": "Processing massive datasets with PySpark and SQL.",
+      "icon": "Database"
+    }
+  ]
+}
