@@ -2,6 +2,17 @@
 
 A modern, interactive portfolio website showcasing AI/ML projects and experience with stunning 3D animations and holographic UI effects.
 
+## 🌟 Live Demo
+
+🔗 **[View Live Portfolio](YOUR_VERCEL_URL_HERE)** 
+
+> Replace `YOUR_VERCEL_URL_HERE` with your deployed Vercel URL after deployment
+
+### 📸 Preview
+![Portfolio Preview](https://via.placeholder.com/1200x600/0F172A/8B5CF6?text=Portfolio+Preview)
+
+> Add a screenshot of your portfolio here after deployment
+
 ## ✨ Features
 
 - 🎨 **Holographic UI Design** - Modern glass morphism with animated gradients
