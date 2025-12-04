@@ -373,22 +373,22 @@ const Projects: React.FC<ProjectsProps> = ({ data, loading }) => {
           </div>
         </motion.div>
 
-        <div className="relative h-[600px] flex items-center justify-center perspective-container" style={{ perspective: "2000px" }}>
+        <div className="relative h-[500px] md:h-[600px] flex items-center justify-center perspective-container px-4" style={{ perspective: "2000px" }}>
           <AnimatePresence mode="popLayout">
             {getVisibleProjects().map(({ project, offset, index }) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.5, x: offset * 400 }}
+                initial={{ opacity: 0, scale: 0.5, x: offset * 300 }}
                 animate={{
-                  opacity: offset === 0 ? 1 : 0.4,
-                  scale: offset === 0 ? 1 : 0.75,
-                  x: offset * 400,
+                  opacity: offset === 0 ? 1 : 0.3,
+                  scale: offset === 0 ? 1 : 0.7,
+                  x: offset * (window.innerWidth < 768 ? 250 : 400),
                   z: offset === 0 ? 0 : -200,
-                  rotateY: offset * 25,
+                  rotateY: offset * (window.innerWidth < 768 ? 15 : 25),
                 }}
                 exit={{ opacity: 0, scale: 0.5 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="absolute w-full max-w-md h-[500px]"
+                className="absolute w-full max-w-[90vw] md:max-w-md h-[450px] md:h-[500px]"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <ProjectCard3D
@@ -404,18 +404,18 @@ const Projects: React.FC<ProjectsProps> = ({ data, loading }) => {
             whileHover={{ scale: 1.1, x: -5 }}
             whileTap={{ scale: 0.9 }}
             onClick={handlePrev}
-            className="absolute left-4 z-30 w-14 h-14 rounded-full bg-gradient-to-r from-accent/20 to-purple-600/20 hover:from-accent hover:to-purple-600 border border-white/20 flex items-center justify-center backdrop-blur-xl transition-all shadow-lg"
+            className="absolute left-2 md:left-4 z-30 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-r from-accent/20 to-purple-600/20 hover:from-accent hover:to-purple-600 border border-white/20 flex items-center justify-center backdrop-blur-xl transition-all shadow-lg"
           >
-            <ChevronLeft size={28} className="text-white" />
+            <ChevronLeft size={24} className="text-white md:w-7 md:h-7" />
           </motion.button>
 
           <motion.button
             whileHover={{ scale: 1.1, x: 5 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleNext}
-            className="absolute right-4 z-30 w-14 h-14 rounded-full bg-gradient-to-r from-accent/20 to-purple-600/20 hover:from-accent hover:to-purple-600 border border-white/20 flex items-center justify-center backdrop-blur-xl transition-all shadow-lg"
+            className="absolute right-2 md:right-4 z-30 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-r from-accent/20 to-purple-600/20 hover:from-accent hover:to-purple-600 border border-white/20 flex items-center justify-center backdrop-blur-xl transition-all shadow-lg"
           >
-            <ChevronRight size={28} className="text-white" />
+            <ChevronRight size={24} className="text-white md:w-7 md:h-7" />
           </motion.button>
         </div>
 

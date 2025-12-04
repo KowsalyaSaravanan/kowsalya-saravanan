@@ -16,6 +16,14 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 // Icon mapping for dock
 const DockIcon = ({ icon: Icon, label, target, scrollToSection, mouseX }: any) => {
   const ref = React.useRef<HTMLAnchorElement>(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // Calculate distance from mouse to this icon
   const distance = useTransform(mouseX, (val: number) => {
@@ -23,8 +31,8 @@ const DockIcon = ({ icon: Icon, label, target, scrollToSection, mouseX }: any) =
     return val - bounds.x - bounds.width / 2;
   });
 
-  // Scale icon based on distance
-  const widthSync = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  // Scale icon based on distance - disabled on mobile
+  const widthSync = useTransform(distance, [-150, 0, 150], isMobile ? [48, 48, 48] : [40, 80, 40]);
   const width = useTransform(widthSync, (val) => val);
 
   return (
@@ -32,12 +40,12 @@ const DockIcon = ({ icon: Icon, label, target, scrollToSection, mouseX }: any) =
       ref={ref}
       href="#"
       onClick={(e) => scrollToSection(e, target)}
-      style={{ width }}
-      className="aspect-square rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center relative group cursor-pointer hover:bg-white/20 transition-colors"
+      style={{ width: isMobile ? 48 : width }}
+      className="aspect-square rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center relative group cursor-pointer hover:bg-white/20 transition-colors flex-shrink-0"
     >
-      <Icon size={20} className="text-white group-hover:text-primary transition-colors" />
+      <Icon size={isMobile ? 18 : 20} className="text-white group-hover:text-primary transition-colors" />
       {/* Tooltip */}
-      <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+      <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
         {label}
       </span>
     </motion.a>
@@ -120,7 +128,7 @@ const App: React.FC = () => {
 
       {/* Holographic Dock Navigation */}
       <div 
-        className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-end gap-4 px-4 py-3 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl"
+        className="fixed bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-end gap-2 md:gap-4 px-3 md:px-4 py-2 md:py-3 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl max-w-[95vw] overflow-x-auto"
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
       >

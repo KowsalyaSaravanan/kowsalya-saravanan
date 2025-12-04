@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-10 tracking-tight leading-tight text-center relative"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 md:mb-10 tracking-tight leading-tight text-center relative px-4"
         >
           <span className="text-white">Hi, I'm {personal.name.split(' ')[0]}, a</span>
           <br />
@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-lg md:text-xl text-slate-400 mb-14 leading-relaxed max-w-3xl mx-auto text-center"
+          className="text-base md:text-lg lg:text-xl text-slate-400 mb-10 md:mb-14 leading-relaxed max-w-3xl mx-auto text-center px-4"
         >
           {personal.tagline?.split(' ').map((word: string, idx: number) => {
             const isHighlight = ['intelligent', 'scalable', 'AI', 'solutions', 'data'].includes(word.toLowerCase().replace(/[.,]/g, ''));
@@ -96,14 +96,14 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-wrap gap-6 items-center justify-center"
+          className="flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-center justify-center px-4"
         >
           <motion.a 
             href="#"
             onClick={(e) => scrollToSection(e, '#projects')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative px-10 py-5 bg-gradient-to-r from-accent to-purple-600 text-white font-bold text-lg rounded-full overflow-hidden shadow-lg shadow-accent/20"
+            className="group relative px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-accent to-purple-600 text-white font-bold text-base md:text-lg rounded-full overflow-hidden shadow-lg shadow-accent/20 w-full sm:w-auto text-center"
           >
             <span className="relative z-10">View Work</span>
             <motion.div
@@ -119,10 +119,10 @@ const Hero: React.FC = () => {
             download="Kowsalya_Saravanan_Resume.pdf"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold rounded-full backdrop-blur-xl transition-all"
+            className="flex items-center justify-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold rounded-full backdrop-blur-xl transition-all w-full sm:w-auto"
           >
-            <Download size={20} />
-            <span>Download Resume</span>
+            <Download size={18} />
+            <span className="text-sm md:text-base">Download Resume</span>
           </motion.a>
         </motion.div>
       </motion.div>
