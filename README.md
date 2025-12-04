@@ -4,12 +4,12 @@ A modern, interactive portfolio website showcasing AI/ML projects and experience
 
 ## 🌟 Live Demo
 
-🔗 **[View Live Portfolio](YOUR_DEPLOYMENT_URL_HERE)** 
+🔗 **[View Live Portfolio](https://kowsalya-saravanan-4a9lhm2re-kowsalyas-projects-7991a3f5.vercel.app)** 
 
 ### 📸 Preview
 ![Portfolio Preview](https://via.placeholder.com/1200x600/0F172A/8B5CF6?text=Portfolio+Preview)
 
-> Add a screenshot of your portfolio here after deployment
+> Portfolio is live! Add a screenshot here for better preview
 
 ## ✨ Features
 
