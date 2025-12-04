@@ -34,12 +34,16 @@ __pycache__/
 # Environment variables
 .env
 .env.local
-.env.example
-/backend/.env
+.env*.local
+backend/.env
+backend/.env.local
+
+# Vercel
+.vercel
+
+# Backend specific
 /backend/__pycache__/
 /backend/*.pyc
 /backend/venv/
-/backend/.env/
-/backend/.env.example
 /backend/notes.txt
 .venv
