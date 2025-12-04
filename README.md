@@ -4,9 +4,7 @@ A modern, interactive portfolio website showcasing AI/ML projects and experience
 
 ## 🌟 Live Demo
 
-🔗 **[View Live Portfolio](YOUR_VERCEL_URL_HERE)** 
-
-> Replace `YOUR_VERCEL_URL_HERE` with your deployed Vercel URL after deployment
+🔗 **[View Live Portfolio](YOUR_DEPLOYMENT_URL_HERE)** 
 
 ### 📸 Preview
 ![Portfolio Preview](https://via.placeholder.com/1200x600/0F172A/8B5CF6?text=Portfolio+Preview)
@@ -118,23 +116,44 @@ Edit the data files in `backend/data/`:
 
 ## 🌐 Deployment
 
-### Deploy to Vercel (Recommended)
+### Deploy to Vercel (Recommended for Frontend)
 
-1. **Install Vercel CLI**
+See [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) for complete step-by-step guide.
+
+**Quick Deploy:**
+
+1. **Push to GitHub:**
 ```bash
-npm i -g vercel
+git push origin main
 ```
 
-2. **Deploy**
+2. **Deploy Frontend:**
+   - Go to [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Click Deploy
+
+3. **Deploy Backend:**
+   - Use [Railway](https://railway.app) or [Render](https://render.com)
+   - Deploy the `backend` folder
+   - Copy the backend URL
+
+4. **Connect them:**
+   - Add `VITE_API_URL` environment variable in Vercel
+   - Set value to your backend URL
+
+### Deploy with Docker
+
+See [DOCKER_DEPLOYMENT.md](DOCKER_DEPLOYMENT.md) for Docker deployment.
+
 ```bash
-vercel
+docker-compose up -d
 ```
 
-3. **Follow the prompts** and your site will be live!
-
-### Deploy Backend
-- Use **Render**, **Railway**, or **Heroku** for the FastAPI backend
-- Update the API URL in `App.tsx` to point to your deployed backend
+### Other Options
+- **Vercel** - Frontend (Recommended)
+- **Railway** - Backend (Recommended)
+- **Render** - Full-stack deployment
+- **AWS/DigitalOcean** - VPS with Docker
 
 ## 📝 API Endpoints
 
