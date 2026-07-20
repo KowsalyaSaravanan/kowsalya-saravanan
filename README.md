@@ -6,9 +6,9 @@ Professional portfolio for Kowsalya Saravanan, focused on AI, ML, backend engine
 
 **Portfolio:** [https://kowsalya-saravanan.vercel.app](https://kowsalya-saravanan.vercel.app)
 
-## Preview
+## Animated Preview
 
-![Portfolio preview](public/portfolio-preview.png)
+![Animated portfolio preview](public/portfolio-walkthrough.gif)
 
 ## Highlights
 
