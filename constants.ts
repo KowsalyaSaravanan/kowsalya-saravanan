@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   phone: "+91 9025417742",
   location: "Chennai, India",
   linkedin: "https://www.linkedin.com/in/kowsalya-saravanan-709a45258",
-  github: "",
+  github: "https://github.com/KowsalyaSaravanan",
   summary: "Senior Software Engineer specializing in backend development and AI/ML integrations with 2+ years of hands-on experience designing scalable microservices, REST APIs, and production-grade architectures. Experienced in LLM orchestration, prompt engineering, writing clean/testable code, and production monitoring."
 };
 
